@@ -45,3 +45,38 @@ filteredProducts = products.filter(function(product){
 
 console.log('vegetables in stock that is 10 dollars or less');
 console.log(filteredProducts)
+
+
+// find comments for a particular post
+
+const post = {id: 4, title: 'New Post'};
+const comments = [
+  {postId: 4, content: 'awesome post'},
+  {postId: 3, content: 'it was ok'},
+  {postId: 4, content: 'neat'}
+];
+
+function commentsForPost(post, comments) {
+  return comments.filter(function(comment){
+    return comment.postId === post.id;
+  })
+}
+
+let commentsForAPost = commentsForPost(post, comments);
+console.log(commentsForAPost);
+
+// filter users with admin access
+
+var users = [
+ { id: 1, admin: true },
+ { id: 2, admin: false },
+ { id: 3, admin: false },
+ { id: 4, admin: false },
+ { id: 5, admin: true },
+];
+
+var filteredUsers = users.filter(function(user){
+    return user.admin;
+});
+
+console.log(filteredUsers);
