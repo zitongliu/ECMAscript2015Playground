@@ -66,7 +66,7 @@ console.log(isBalanced);
 
 
 // another example
-var desks = [
+const desks = [
   { type: 'sitting' },
   { type: 'standing' },
   { type: 'sitting' },
@@ -74,12 +74,15 @@ var desks = [
   { type: 'standing' }
 ];
 
-var deskTypes = desks.reduce(function(previous, desk) {
+const deskTypes = desks.reduce(function(previous, desk) {
     if (desk.type === 'sitting') {
-        return previous.sitting++;
+      previous.sitting += 1;
+      return previous;
+
     }
     if (desk.type === 'standing') {
-        return previous.standing--;
+      previous.standing += 1;
+      return previous;
     }
 }, { sitting: 0, standing: 0 });
 
