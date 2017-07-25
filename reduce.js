@@ -87,3 +87,26 @@ const deskTypes = desks.reduce(function(previous, desk) {
 }, { sitting: 0, standing: 0 });
 
 console.log(deskTypes);
+
+
+//Write a function called 'unique' that will remove all the duplicate values from an array.
+
+// For example, given the following array:
+// var numbers = [1, 1, 2, 3, 4, 4];
+// Your function should return
+// [1, 2, 3, 4]
+
+function removeDuplicate(array) {
+  return array.reduce(function(acc, number){
+    let duplicate = acc.find(num => num === number);
+    if (!duplicate) {
+      acc.push(number);
+    }
+    return acc;
+  }, []);
+}
+
+const numbers = [1, 1, 2, 3, 4, 4, 6, 6];
+
+const duplicateFreeNumbers = removeDuplicate(numbers);
+console.log(duplicateFreeNumbers);
