@@ -33,3 +33,54 @@ let arrayOfColors = primaryColors.reduce(function(previous, primaryColor) {
 }, [])
 
 console.log(arrayOfColors);
+
+//  example of reduce
+// given a string that contains a certain number of parentheses, are the parentheses balanced?,
+
+
+function balancedParens(string) {
+   // turn string into array
+   // everytime we see open, we increase counter by one, every time we see closing, we decrease counter by one
+  return !string.split("").reduce(function(previous, char) {
+    if (previous < 0 ) {
+      return previous;
+    }
+    if (char === "(") {
+      return ++previous;
+    }
+    if (char ===")") {
+      return --previous;
+    }
+    return previous;
+  }, 0);
+}
+
+let isBalanced = balancedParens("(())");
+console.log(isBalanced);
+
+isBalanced = balancedParens("((((()");
+console.log(isBalanced);
+
+isBalanced = balancedParens(")()");
+console.log(isBalanced);
+
+
+// another example
+var desks = [
+  { type: 'sitting' },
+  { type: 'standing' },
+  { type: 'sitting' },
+  { type: 'sitting' },
+  { type: 'standing' }
+];
+
+var deskTypes = desks.reduce(function(previous, desk) {
+    if (desk.type === 'sitting') {
+        return previous.sitting++;
+    }
+    if (desk.type === 'standing') {
+        return previous.standing--;
+    }
+}, { sitting: 0, standing: 0 });
+
+console.log(deskTypes);
