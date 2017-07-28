@@ -26,7 +26,7 @@ console.log(doubledNumbers);
 // object that represent a team of people.
 // without using arrow functions, teamSummary would return an error because inside the map function, the context of this in this.teamName is lost (we are defining an anonymous function and passing it off to somewhere else in the codebase  ). we can solve using .bind(this) or self = this
 // arrow functions also solve this problem - lexical this.
-// arrow functions bind the value of 'this' to the surrounding conext
+// arrow functions bind the value of 'this' to the surrounding context
 const team = {
   members: ['Steve', 'Bill', 'Jane'],
   teamName: 'Suicide Squad',
@@ -37,3 +37,10 @@ const team = {
     });
   }
 };
+
+// note it is now always good to use arrow functions
+const profile = {
+  name: 'Alex',
+  // this will result in error message because the context of surrounding is not profile
+  // getName: () => {return this.name}
+}
